@@ -75,6 +75,9 @@ class LinkedList {
   }
 
   reverse() {
+    if (!this.head.next) {
+      return this.head;
+    }
     let first = this.head;
     this.tail = this.head;
     let second = first.next;
