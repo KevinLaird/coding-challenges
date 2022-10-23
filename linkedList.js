@@ -73,6 +73,21 @@ class LinkedList {
     selectedNode.next = nodeToDelete.next;
     this.length--;
   }
+
+  reverse() {
+    let first = this.head;
+    this.tail = this.head;
+    let second = first.next;
+    while (second) {
+      const temp = second.next;
+      second.next = first;
+      first = second;
+      second = temp;
+    }
+    this.head.next = null;
+    this.head = first;
+    return this;
+  }
 }
 
 // 1 --> 2 --> 3
@@ -88,6 +103,6 @@ const myLinkedList = new LinkedList(10);
 myLinkedList.append(11);
 myLinkedList.append(12);
 myLinkedList.append(13);
-myLinkedList.remove(2);
+myLinkedList.reverse();
 
 console.log(myLinkedList.printList());
